@@ -78,6 +78,14 @@ def create_dashboard(df):
 
     # 7. Average Reading Score by Test Preparation Course
     st.subheader("7. Average Reading Score by Test Preparation Course")
-    avg_reading_prep = df.groupby("test_preparation_course")["reading_score"].median()
-    st.bar_chart(avg_reading_prep, height=300)
+    avg_reading_prep = df.groupby("test_preparation_course")["reading_score"].mean()
+    plt.figure(figsize=(6,4))
+    sns.barplot(x=avg_reading_prep.index, y=avg_reading_prep.values, palette="pastel")
+    plt.xlabel("Test Preparation Course")
+    plt.ylabel("Average Reading Score")
+    plt.title("Average Reading Score by Test Preparation Course")
+    plt.tight_layout()
+    st.pyplot(plt)
+    plt.close()
+    
     
