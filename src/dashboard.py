@@ -68,7 +68,7 @@ def create_dashboard(df):
     # 6. Math Score Distribution
     st.subheader("6. Math Score Distribution")
     fig, ax = plt.subplots(figsize=(8, 4))
-    sns.histplot(df['math_score'], bins=15, kde=True, color="skyblue", alpha=0.7, ax=ax)
+    sns.histplot(df['math_score'], bins=15, kde=True, color="orange", alpha=0.7, ax=ax)
     plt.xlabel("Math Score")
     plt.ylabel("Number of Students")
     plt.title("Distribution of Math Scores")
@@ -79,8 +79,8 @@ def create_dashboard(df):
     # 7. Average Reading Score by Test Preparation Course
     st.subheader("7. Average Reading Score by Test Preparation Course")
     avg_reading_prep = df.groupby("test_preparation_course")["reading_score"].mean()
-    plt.figure(figsize=(6,4))
-    sns.barplot(x=avg_reading_prep.index, y=avg_reading_prep.values, palette="pastel")
+    plt.figure(figsize=(8,4))
+    sns.barplot(x=avg_reading_prep.index, y=avg_reading_prep.values, color="y")
     plt.xlabel("Test Preparation Course")
     plt.ylabel("Average Reading Score")
     plt.title("Average Reading Score by Test Preparation Course")
